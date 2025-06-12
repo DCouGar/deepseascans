@@ -34,6 +34,17 @@ RUN composer install --no-dev --optimize-autoloader
 RUN chown -R www-data:www-data /var/www/html
 RUN chmod -R 755 /var/www/html/storage
 
+# Create startup script for migrations and seeders
+RUN echo '#!/bin/bash\n\
+php artisan config:cache\n\
+php artisan route:cache\n\
+php artisan view:cache\n\
+php artisan migrate --force\n\
+php artisan db:seed --force\n\
+apache2-foreground' > /usr/local/bin/start.sh
+
+RUN chmod +x /usr/local/bin/start.sh
+
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite
 
@@ -51,5 +62,5 @@ RUN echo '<VirtualHost *:80>\n\
 # Expose port 80
 EXPOSE 80
 
-# Start Apache
-CMD ["apache2-foreground"] 
+# Start with migrations and seeders
+CMD ["/usr/local/bin/start.sh"] 
