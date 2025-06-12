@@ -195,6 +195,32 @@
             color: #cccccc;
             margin: 0;
         }
+
+        /* --- ADMIN PANEL STYLES --- */
+        /* Style for admin dashboard cards */
+        .admin-card {
+            background-color: #1e1e1e; /* Same background as manga-item */
+            border: 1px solid #444; /* Same border as manga-item */
+            /* text-white is already applied via Bootstrap class */
+        }
+
+        /* Style for secondary/management buttons specifically within admin cards */
+        .admin-card .btn-secondary {
+            background-color: #444; /* Dark gray background */
+            border-color: #555;
+            color: #ccc; /* Light gray text */
+        }
+        .admin-card .btn-secondary:hover {
+            background-color: #555;
+            border-color: #666;
+            color: #fff; /* White text on hover */
+        }
+
+        /* Optional: Style for numbers in admin cards */
+        .admin-card .display-4 {
+            font-weight: 500; /* Make numbers slightly bolder */
+        }
+        /* --- END ADMIN PANEL STYLES --- */
     </style>
 
     @yield('styles') {{-- Still useful if a specific page needs extra unique styles --}}
