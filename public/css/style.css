@@ -1,169 +1,292 @@
-/* DeepSeaScans Custom Styles */
+/* public/css/style.css */
 
-/* Fondo oscuro principal */
+html, body {
+    height: 100%;
+}
+
 body {
-    background-color: #1a1a1a !important;
+    background-color: #121212;
+    color: #ffffff;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+main.container {
+    flex-grow: 1;
+}
+
+.container {
+    max-width: 1200px;
+}
+
+/* --- NAVBAR STYLES --- */
+.navbar {
+    background-color: #2a4f8b; /* Blue background */
+    border-bottom: 1px solid #1a355d; /* Darker blue bottom border */
+    padding: 10px 0;
+    font-family: 'Nunito', sans-serif; /* Specific font for navbar */
+}
+
+/* Navbar Brand (Logo & Text) */
+.navbar .navbar-brand {
+    color: #cccccc !important;
+    font-weight: 700;
+    text-decoration: none;
+}
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand span:hover {
+     color: #ffffff !important;
+}
+.navbar .navbar-brand img {
+     height: 30px; /* Logo height */
+     filter: none;
+     vertical-align: middle;
+}
+
+/* Navbar Links */
+.navbar .navbar-nav .nav-link {
+    color: #cccccc;
+    font-weight: 500;
+    transition: color 0.2s ease-in-out;
+    padding: 0.5rem 1rem;
+}
+
+/* Navbar Links Hover/Focus/Active */
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus,
+.navbar .navbar-nav .nav-link.active {
     color: #ffffff;
 }
 
-/* Grid de manga */
+/* Logout Button Styling */
+ .navbar .navbar-nav .nav-link-button {
+     background: none;
+     border: none;
+     padding: 0.5rem 1rem;
+     color: #cccccc;
+     font-weight: 500;
+     font-family: 'Nunito', sans-serif;
+     cursor: pointer;
+     transition: color 0.2s ease-in-out;
+ }
+ .navbar .navbar-nav .nav-link-button:hover {
+      color: #ffffff;
+ }
+
+/* Navbar Toggler Icon */
+.navbar-toggler-icon {
+     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(204, 204, 204, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+/* Navbar Toggler Button Border */
+.navbar-toggler {
+    border-color: rgba(204, 204, 204, 0.4);
+}
+.navbar-toggler:focus {
+     box-shadow: 0 0 0 0.25rem rgba(204, 204, 204, 0.25);
+}
+/* --- END NAVBAR STYLES --- */
+
+
+/* --- MANGA GRID STYLES --- */
 .manga-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
-    padding: 20px 0;
+    margin-top: 20px;
 }
 
-/* Cada item de manga */
 .manga-item {
-    background-color: #2d2d2d;
-    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #1e1e1e;
+    border-radius: 5px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
 }
 
 .manga-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
 }
 
-/* Imagen de manga */
 .manga-image {
     width: 100%;
-    height: 300px;
+    aspect-ratio: 2 / 3;
     object-fit: cover;
     display: block;
+    background-color: #282828;
 }
 
-/* Información del manga */
 .manga-info {
-    padding: 15px;
-    background-color: #333333;
+    padding: 10px 15px;
+    flex-grow: 1;
 }
 
 .manga-info h5 {
-    margin: 0;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
+     font-size: 1rem;
+     color: #eee;
+     font-weight: 600;
+     margin-bottom: 0;
+     white-space: nowrap;
+     overflow: hidden;
+     text-overflow: ellipsis;
 }
 
-/* Botones del manga */
 .manga-buttons {
     display: flex;
     justify-content: space-between;
-    padding: 10px 15px 15px;
-    background-color: #333333;
+    align-items: center;
+    padding: 0 15px 15px 15px;
+    margin-top: auto;
     gap: 10px;
 }
 
-/* Estilo de botones */
-.button {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 8px 16px;
+.button { /* General button style within manga cards */
+    background-color: #383838;
+    color: #e0e0e0;
+    border: none;
+    padding: 6px 10px;
     border-radius: 4px;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 0.8rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
     font-weight: 500;
     text-align: center;
-    transition: background-color 0.3s ease;
-    flex: 1;
-    display: inline-block;
+    flex-shrink: 0;
+    white-space: nowrap;
 }
 
 .button:hover {
-    background-color: #0056b3;
-    color: #ffffff;
+    background-color: #555;
+    color: #fff;
     text-decoration: none;
 }
+/* --- END MANGA GRID STYLES --- */
 
-.button.disabled {
-    background-color: #444444 !important;
-    color: #888888;
-    cursor: not-allowed;
-    opacity: 0.6;
+
+/* --- CHAPTER LIST STYLES --- */
+.chapter-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-/* Títulos principales */
-h1 {
-    color: #ffffff;
-    margin-bottom: 30px;
-    font-size: 2.5rem;
-    font-weight: 700;
+.chapter-list li {
+    border-bottom: 1px solid #333;
+    transition: background-color 0.2s;
+}
+ .chapter-list li:last-child {
+     border-bottom: none;
+ }
+ .chapter-list li:hover {
+      background-color: #2a2a2a;
+ }
+
+.chapter-list a {
+    color: #cccccc;
+    text-decoration: none;
+    display: block;
+    padding: 12px 15px;
+    transition: color 0.2s;
+}
+.chapter-list a:hover {
+     color: #ffffff;
+}
+/* --- END CHAPTER LIST STYLES --- */
+
+
+/* --- READER STYLES --- */
+.reader-container {
+    text-align: center;
+    max-width: 800px;
+    margin: 20px auto;
 }
 
-/* Navegación */
-.navbar-dark {
-    background-color: #1a1a1a !important;
+.reader-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: #ffffff !important;
+.reader-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+ .reader-nav .btn { /* Assumes reader nav uses Bootstrap .btn */
+     background-color: #333;
+     border-color: #555;
+     color: #fff;
+ }
+  .reader-nav .btn:hover {
+     background-color: #555;
+     border-color: #777;
+     color: #fff;
+  }
+/* --- END READER STYLES --- */
+
+
+/* --- FOOTER STYLES --- */
+footer {
+     background-color: #1a1a1a;
+     color: #aaa;
+     padding: 20px 0;
+     margin-top: 40px; /* Pushes footer down from content */
+     border-top: 1px solid #333;
+     width: 100%;
+ }
+  footer p {
+     margin-bottom: 0;
+ }
+/* --- END FOOTER STYLES --- */
+
+
+/* --- ADMIN PANEL STYLES --- */ /* ADDED THIS SECTION */
+
+/* Style for admin dashboard cards */
+.admin-card {
+    background-color: #1e1e1e; /* Same background as manga-item */
+    border: 1px solid #444; /* Same border as manga-item */
+    /* text-white is already applied via Bootstrap class */
 }
 
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #007bff !important;
+/* Override Bootstrap primary button for better dark theme contrast if needed */
+/* Note: This will affect ALL btn-primary on the site if not scoped further */
+.btn-primary {
+    background-color: #0d6efd; /* Standard Bootstrap blue */
+    border-color: #0d6efd;
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    color: #fff;
 }
 
-/* Paginación */
-.pagination {
-    justify-content: center;
+/* Style for secondary/management buttons specifically within admin cards */
+.admin-card .btn-secondary {
+    background-color: #444; /* Dark gray background */
+    border-color: #555;
+    color: #ccc; /* Light gray text */
+}
+.admin-card .btn-secondary:hover {
+    background-color: #555;
+    border-color: #666;
+    color: #fff; /* White text on hover */
 }
 
-.page-link {
-    background-color: #2d2d2d;
-    border-color: #444444;
-    color: #ffffff;
+/* Optional: Style for numbers in admin cards */
+.admin-card .display-4 {
+    font-weight: 500; /* Make numbers slightly bolder */
 }
 
-.page-link:hover {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #ffffff;
-}
-
-.page-item.active .page-link {
-    background-color: #007bff;
-    border-color: #007bff;
-}
-
-/* Mensajes de estado */
-.text-muted {
-    color: #888888 !important;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .manga-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 15px;
-        padding: 15px 0;
-    }
-    
-    .manga-buttons {
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .button {
-        flex: none;
-    }
-}
-
-@media (max-width: 576px) {
-    .manga-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
-    }
-    
-    .manga-image {
-        height: 250px;
-    }
-    
-    h1 {
-        font-size: 2rem;
-    }
-} 
+/* --- END ADMIN PANEL STYLES --- */

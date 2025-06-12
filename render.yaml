@@ -2,6 +2,6 @@ services:
   - type: web
     name: deepseascans
     runtime: php
-    buildCommand: npm install && npm run build && composer install --no-dev --optimize-autoloader && php artisan migrate --force
+    buildCommand: npm install && npm run build && composer install --no-dev --optimize-autoloader && php artisan storage:link && php artisan migrate --force
     startCommand: php -S 0.0.0.0:10000 server.php
     plan: free 
