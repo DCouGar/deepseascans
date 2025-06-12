@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
 
     <!-- Favicon -->
-    <link rel="icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     
     <!-- Inline Styles (restored) -->
     <style>
@@ -230,7 +231,7 @@
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('landing') }}">
                 {{-- Use favicon as logo since deepsea.png doesn't exist --}}
-                <img src="{{ asset('favicon.ico') }}" alt="Logo">
+                <img src="/favicon.ico" alt="Logo">
                 <span>DeepSea Scans</span>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
