@@ -1,0 +1,169 @@
+/* DeepSeaScans Custom Styles */
+
+/* Fondo oscuro principal */
+body {
+    background-color: #1a1a1a !important;
+    color: #ffffff;
+}
+
+/* Grid de manga */
+.manga-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Cada item de manga */
+.manga-item {
+    background-color: #2d2d2d;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.manga-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+/* Imagen de manga */
+.manga-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Información del manga */
+.manga-info {
+    padding: 15px;
+    background-color: #333333;
+}
+
+.manga-info h5 {
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Botones del manga */
+.manga-buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px 15px;
+    background-color: #333333;
+    gap: 10px;
+}
+
+/* Estilo de botones */
+.button {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    flex: 1;
+    display: inline-block;
+}
+
+.button:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.button.disabled {
+    background-color: #444444 !important;
+    color: #888888;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Títulos principales */
+h1 {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+/* Navegación */
+.navbar-dark {
+    background-color: #1a1a1a !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #ffffff !important;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #007bff !important;
+}
+
+/* Paginación */
+.pagination {
+    justify-content: center;
+}
+
+.page-link {
+    background-color: #2d2d2d;
+    border-color: #444444;
+    color: #ffffff;
+}
+
+.page-link:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #ffffff;
+}
+
+.page-item.active .page-link {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Mensajes de estado */
+.text-muted {
+    color: #888888 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .manga-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        padding: 15px 0;
+    }
+    
+    .manga-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .button {
+        flex: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .manga-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    
+    .manga-image {
+        height: 250px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+} 
