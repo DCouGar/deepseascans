@@ -45,7 +45,7 @@
 
     <div class="reader-container">
         @forelse($chapter->pages()->orderBy('page_number')->get() as $page) {{-- Ensure pages are ordered --}}
-            <img src="{{ asset('storage/' . $page->image_path) }}"
+            <img src="{{ '/storage/' . $page->image_path }}"
                  alt="Página {{ $page->page_number }}"
                  class="img-fluid mb-2 d-block mx-auto"> {{-- Ensure block display and centering, reduced margin --}}
         @empty

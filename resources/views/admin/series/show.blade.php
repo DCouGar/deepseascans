@@ -19,7 +19,7 @@
     
     <div class="row mb-4">
         <div class="col-md-3">
-            <img src="{{ $series->cover_image ? asset('storage/' . $series->cover_image) : '/images/default-cover.jpg' }}" 
+            <img src="{{ $series->cover_image ? '/storage/' . $series->cover_image : '/images/default-cover.jpg' }}" 
                  alt="{{ $series->name }}" class="img-fluid rounded">
         </div>
         <div class="col-md-9">
