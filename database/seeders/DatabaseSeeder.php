@@ -9,6 +9,7 @@ use App\Models\Chapter;
 use App\Models\Page;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class DatabaseSeeder extends Seeder
 {
@@ -17,15 +18,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // LIMPIAR DATOS EXISTENTES PRIMERO
-        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
-        Page::truncate();
-        Chapter::truncate();
-        Series::truncate();
-        User::where('email', '!=', 'admin@example.com')->delete(); // Mantener admin si existe
-        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+        Log::info('=== INICIANDO SEEDER NUEVO ===');
+        
+        // LIMPIAR DATOS EXISTENTES PRIMERO (PostgreSQL compatible)
+        Log::info('Limpiando datos existentes...');
+        Page::query()->delete();
+        Chapter::query()->delete();
+        Series::query()->delete();
+        User::where('email', '!=', 'admin@example.com')->delete();
+        Log::info('Datos limpiados correctamente');
 
         // Crear usuario administrador (solo si no existe)
+        Log::info('Creando usuario admin...');
         User::firstOrCreate(
             ['email' => 'admin@example.com'],
             [
@@ -34,6 +38,7 @@ class DatabaseSeeder extends Seeder
                 'is_admin' => true,
             ]
         );
+        Log::info('Usuario admin creado/encontrado');
 
         // Series con datos completos para TFG - Especificaciones exactas del usuario
         $seriesData = [
@@ -151,16 +156,23 @@ class DatabaseSeeder extends Seeder
             ]
         ];
 
+        Log::info('Iniciando creación de series...');
+        
         // Crear las series con sus capítulos y páginas
         foreach ($seriesData as $index => $serieData) {
+            Log::info("Creando serie: " . $serieData['name']);
+            
             $chapters = $serieData['chapters'];
             unset($serieData['chapters']); // Remover chapters del array principal
             
             // Crear la serie
             $serie = Series::create($serieData);
+            Log::info("Serie creada con ID: " . $serie->id);
             
             // Crear capítulos y páginas para cada serie
             foreach ($chapters as $chapterData) {
+                Log::info("Creando capítulo: " . $chapterData['title']);
+                
                 $pages = $chapterData['pages'];
                 unset($chapterData['pages']); // Remover pages del array de capítulo
                 
@@ -177,7 +189,11 @@ class DatabaseSeeder extends Seeder
                         'image_path' => $imagePath
                     ]);
                 }
+                
+                Log::info("Capítulo creado con " . count($pages) . " páginas");
             }
         }
+        
+        Log::info('=== SEEDER COMPLETADO EXITOSAMENTE ===');
     }
 }
