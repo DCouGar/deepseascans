@@ -67,6 +67,23 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
     Route::delete('/series/{series}/chapters/{chapter}', [ChapterController::class, 'destroy'])->name('chapters.destroy');
 });
 
+// Image serving routes for Render compatibility
+Route::get('/covers/{filename}', function ($filename) {
+    $path = public_path('covers/' . $filename);
+    if (!file_exists($path)) {
+        abort(404);
+    }
+    return response()->file($path);
+})->where('filename', '.*');
+
+Route::get('/series/{path}', function ($path) {
+    $fullPath = public_path('series/' . $path);
+    if (!file_exists($fullPath)) {
+        abort(404);
+    }
+    return response()->file($fullPath);
+})->where('path', '.*');
+
 // Health check endpoint for monitoring
 Route::get('/health', function () {
     return response()->json([
