@@ -2,6 +2,6 @@ services:
   - type: web
     name: deepseascans
     runtime: php
-    buildCommand: npm install && npm run build && composer install --no-dev --optimize-autoloader && mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache && chmod -R 755 storage bootstrap/cache && php artisan storage:link && php artisan migrate:fresh --force && php artisan db:seed --force
+    buildCommand: npm install && npm run build && composer install --no-dev --optimize-autoloader && mkdir -p storage/framework/sessions storage/framework/views storage/framework/cache && chmod -R 755 storage bootstrap/cache && php artisan storage:link && mkdir -p public/storage && cp -r storage/app/public/* public/storage/ && php artisan migrate:fresh --force && php artisan db:seed --force
     startCommand: php -S 0.0.0.0:10000 server.php
     plan: free 
