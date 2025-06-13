@@ -13,7 +13,7 @@
                 {{-- FIX: Changed route name from 'series.show' to 'series.show.public' --}}
                 <a href="{{ route('series.show.public', $serie->id) }}">
                     {{-- The image itself with the styling class and alt text --}}
-                    <img src="{{ $serie->cover_image ? '/storage/' . $serie->cover_image : '/images/default-cover.jpg' }}"
+                    <img src="{{ $serie->cover_image ? '/' . $serie->cover_image : '/images/default-cover.jpg' }}"
                          alt="{{ $serie->name }} Cover" {{-- Added "Cover" to alt text --}}
                          class="manga-image">
                 </a>
