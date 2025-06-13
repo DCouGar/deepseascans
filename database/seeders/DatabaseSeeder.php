@@ -24,51 +24,146 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
 
-        // Crear algunas series de ejemplo
-        $series = [
+        // Series con datos completos para TFG - Especificaciones exactas del usuario
+        $seriesData = [
+            // SERIE 1: Dragon Forest - 3 capítulos (4, 5, 5 páginas)
             [
-                'name' => 'Bad Born Blood',
-                'author' => 'hobak bird',
-                'artist' => 'D-park',
-                'genre' => 'Action, Adventure, Fantasy, Sci-fi',
-                'synopsis' => 'Humanity\'s home is no longer Earth. Interstellar travel is now a common occurrence, and technology has replaced blood and flesh. Luka, who grew up in the slums, has turned fifteen and taken the selection exams. His aptitude is of the "Imperial Guard."',
+                'name' => 'Dragon Forest',
+                'author' => 'Anónimo',
+                'artist' => 'Anónimo',
+                'genre' => 'Fantasy, Adventure, Action',
+                'synopsis' => 'En un mundo donde los dragones y los humanos coexisten, una joven aventurera debe descubrir los secretos del Bosque de los Dragones para salvar su aldea de una antigua maldición. Armada con su determinación y una misteriosa conexión con estas criaturas legendarias.',
                 'status' => 'Ongoing',
+                'cover_image' => 'covers/dragon-forest-cover.png',
+                'chapters' => [
+                    [
+                        'number' => 1,
+                        'title' => 'El Llamado del Bosque',
+                        'pages' => [
+                            'series/1/chapters/1/page-1.png',
+                            'series/1/chapters/1/page-2.png',
+                            'series/1/chapters/1/page-3.png',
+                            'series/1/chapters/1/page-4.png',
+                        ]
+                    ],
+                    [
+                        'number' => 2,
+                        'title' => 'Primer Encuentro',
+                        'pages' => [
+                            'series/1/chapters/2/page-1.png',
+                            'series/1/chapters/2/page-2.png',
+                            'series/1/chapters/2/page-3.png',
+                            'series/1/chapters/2/page-4.png',
+                            'series/1/chapters/2/page-5.png',
+                        ]
+                    ],
+                    [
+                        'number' => 3,
+                        'title' => 'El Dragón Guardián',
+                        'pages' => [
+                            'series/1/chapters/3/page-1.png',
+                            'series/1/chapters/3/page-2.png',
+                            'series/1/chapters/3/page-3.png',
+                            'series/1/chapters/3/page-4.png',
+                            'series/1/chapters/3/page-5.png',
+                        ]
+                    ]
+                ]
             ],
+            // SERIE 2: Celestial Saga - 3 capítulos (5, 5, 5 páginas)
             [
-                'name' => 'Duke Pendragon',
-                'author' => 'Chwiryong',
-                'artist' => 'Carrot Soup',
-                'genre' => 'Action, Adventure, Fantasy',
-                'synopsis' => 'A story about a man who became possessed by the greatest dragon slayer.',
+                'name' => 'Celestial Saga',
+                'author' => 'Anónimo',
+                'artist' => 'Anónimo',
+                'genre' => 'Fantasy, Adventure, Action',
+                'synopsis' => 'Una guerrera celestial desciende del reino divino para proteger el mundo mortal de las fuerzas oscuras que amenazan con destruir el equilibrio entre el cielo y la tierra. Con su espada sagrada y sus alas angelicales, debe enfrentar enemigos que desafían tanto su fe como su poder.',
                 'status' => 'Ongoing',
+                'cover_image' => 'covers/celestial-saga-cover.png',
+                'chapters' => [
+                    [
+                        'number' => 1,
+                        'title' => 'Descenso Divino',
+                        'pages' => [
+                            'series/2/chapters/1/page-1.png',
+                            'series/2/chapters/1/page-2.png',
+                            'series/2/chapters/1/page-3.png',
+                            'series/2/chapters/1/page-4.png',
+                            'series/2/chapters/1/page-5.png',
+                        ]
+                    ],
+                    [
+                        'number' => 2,
+                        'title' => 'La Espada Sagrada',
+                        'pages' => [
+                            'series/2/chapters/2/page-1.png',
+                            'series/2/chapters/2/page-2.png',
+                            'series/2/chapters/2/page-3.png',
+                            'series/2/chapters/2/page-4.png',
+                            'series/2/chapters/2/page-5.png',
+                        ]
+                    ],
+                    [
+                        'number' => 3,
+                        'title' => 'Batalla en los Cielos',
+                        'pages' => [
+                            'series/2/chapters/3/page-1.png',
+                            'series/2/chapters/3/page-2.png',
+                            'series/2/chapters/3/page-3.png',
+                            'series/2/chapters/3/page-4.png',
+                            'series/2/chapters/3/page-5.png',
+                        ]
+                    ]
+                ]
             ],
+            // SERIE 3: Phantom Seeker - 1 capítulo (5 páginas)
             [
-                'name' => 'The Nebula\'s Civilization',
-                'author' => 'Miso',
-                'artist' => 'Miso Studio',
-                'genre' => 'Action, Adventure, Sci-fi',
-                'synopsis' => 'In a distant future, humanity has spread across the stars, forming a vast civilization spanning the nebula.',
-                'status' => 'Ongoing',
-            ],
+                'name' => 'Phantom Seeker',
+                'author' => 'Anónimo',
+                'artist' => 'Anónimo',
+                'genre' => 'Supernatural, Action, Mystery',
+                'synopsis' => 'En un mundo donde los espíritus malignos acechan en las sombras, un joven cazador de fantasmas armado con armas especiales debe enfrentar las criaturas más peligrosas del más allá. Cada misión lo acerca más a descubrir la verdad sobre su pasado y el origen de sus poderes sobrenaturales.',
+                'status' => 'Completed',
+                'cover_image' => 'covers/phantom-seeker-cover.png',
+                'chapters' => [
+                    [
+                        'number' => 1,
+                        'title' => 'El Primer Contacto',
+                        'pages' => [
+                            'series/3/chapters/1/page-1.png',
+                            'series/3/chapters/1/page-2.png',
+                            'series/3/chapters/1/page-3.png',
+                            'series/3/chapters/1/page-4.png',
+                            'series/3/chapters/1/page-5.png',
+                        ]
+                    ]
+                ]
+            ]
         ];
 
-        foreach ($series as $seriesData) {
-            $serie = Series::create($seriesData);
+        // Crear las series con sus capítulos y páginas
+        foreach ($seriesData as $index => $serieData) {
+            $chapters = $serieData['chapters'];
+            unset($serieData['chapters']); // Remover chapters del array principal
             
-            // Crear algunos capítulos para cada serie
-            for ($i = 1; $i <= 5; $i++) {
-                $chapter = Chapter::create([
-                    'series_id' => $serie->id,
-                    'number' => $i,
-                    'title' => 'Capítulo ' . $i,
+            // Crear la serie
+            $serie = Series::create($serieData);
+            
+            // Crear capítulos y páginas para cada serie
+            foreach ($chapters as $chapterData) {
+                $pages = $chapterData['pages'];
+                unset($chapterData['pages']); // Remover pages del array de capítulo
+                
+                // Crear el capítulo
+                $chapter = $serie->chapters()->create([
+                    'number' => $chapterData['number'],
+                    'title' => $chapterData['title']
                 ]);
                 
-                // Crear páginas de ejemplo para cada capítulo
-                for ($j = 1; $j <= 3; $j++) {
-                    Page::create([
-                        'chapter_id' => $chapter->id,
-                        'page_number' => $j,
-                        'image_path' => 'placeholder/page' . $j . '.jpg',
+                // Crear las páginas
+                foreach ($pages as $pageIndex => $imagePath) {
+                    $chapter->pages()->create([
+                        'page_number' => $pageIndex + 1,
+                        'image_path' => $imagePath
                     ]);
                 }
             }
