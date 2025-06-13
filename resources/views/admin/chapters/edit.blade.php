@@ -92,7 +92,7 @@
                         <h5 class="card-title">Vista previa (1ª pág.)</h5>
                         @php $firstPage = $chapter->pages()->orderBy('page_number', 'asc')->first(); @endphp
                         @if($firstPage)
-                            <img src="{{ '/series/' . $firstPage->image_path }}" class="img-fluid" alt="Primera página">
+                            <img src="{{ $firstPage->image_path }}" class="img-fluid" alt="Primera página">
                         @else
                             <p class="text-center text-muted">No hay páginas</p>
                         @endif

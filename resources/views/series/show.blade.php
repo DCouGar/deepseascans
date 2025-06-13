@@ -5,7 +5,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-4">
-            <img src="{{ $series->cover_image ? '/covers/' . $series->cover_image : '/images/default-cover.jpg' }}" 
+            <img src="{{ $series->cover_image ?: '/images/default-cover.jpg' }}" 
                  alt="{{ $series->name }}" class="img-fluid rounded mb-3">
                  
             <div class="d-grid gap-2 mb-3">
