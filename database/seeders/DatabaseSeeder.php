@@ -50,38 +50,38 @@ class DatabaseSeeder extends Seeder
                 'genre' => 'Fantasy, Adventure, Action',
                 'synopsis' => 'En un mundo donde los dragones y los humanos coexisten, una joven aventurera debe descubrir los secretos del Bosque de los Dragones para salvar su aldea de una antigua maldición. Armada con su determinación y una misteriosa conexión con estas criaturas legendarias.',
                 'status' => 'Ongoing',
-                'cover_image' => 'covers/dragon-forest-cover.png',
+                'cover_image' => 'dragon-forest-cover.png',
                 'chapters' => [
                     [
                         'number' => 1,
                         'title' => 'El Llamado del Bosque',
                         'pages' => [
-                            'series/1/chapters/1/page-1.png',
-                            'series/1/chapters/1/page-2.png',
-                            'series/1/chapters/1/page-3.png',
-                            'series/1/chapters/1/page-4.png',
+                            '1/chapters/1/page-1.png',
+                            '1/chapters/1/page-2.png',
+                            '1/chapters/1/page-3.png',
+                            '1/chapters/1/page-4.png',
                         ]
                     ],
                     [
                         'number' => 2,
                         'title' => 'Primer Encuentro',
                         'pages' => [
-                            'series/1/chapters/2/page-1.png',
-                            'series/1/chapters/2/page-2.png',
-                            'series/1/chapters/2/page-3.png',
-                            'series/1/chapters/2/page-4.png',
-                            'series/1/chapters/2/page-5.png',
+                            '1/chapters/2/page-1.png',
+                            '1/chapters/2/page-2.png',
+                            '1/chapters/2/page-3.png',
+                            '1/chapters/2/page-4.png',
+                            '1/chapters/2/page-5.png',
                         ]
                     ],
                     [
                         'number' => 3,
                         'title' => 'El Dragón Guardián',
                         'pages' => [
-                            'series/1/chapters/3/page-1.png',
-                            'series/1/chapters/3/page-2.png',
-                            'series/1/chapters/3/page-3.png',
-                            'series/1/chapters/3/page-4.png',
-                            'series/1/chapters/3/page-5.png',
+                            '1/chapters/3/page-1.png',
+                            '1/chapters/3/page-2.png',
+                            '1/chapters/3/page-3.png',
+                            '1/chapters/3/page-4.png',
+                            '1/chapters/3/page-5.png',
                         ]
                     ]
                 ]
@@ -94,39 +94,39 @@ class DatabaseSeeder extends Seeder
                 'genre' => 'Fantasy, Adventure, Action',
                 'synopsis' => 'Una guerrera celestial desciende del reino divino para proteger el mundo mortal de las fuerzas oscuras que amenazan con destruir el equilibrio entre el cielo y la tierra. Con su espada sagrada y sus alas angelicales, debe enfrentar enemigos que desafían tanto su fe como su poder.',
                 'status' => 'Ongoing',
-                'cover_image' => 'covers/celestial-saga-cover.png',
+                'cover_image' => 'celestial-saga-cover.png',
                 'chapters' => [
                     [
                         'number' => 1,
                         'title' => 'Descenso Divino',
                         'pages' => [
-                            'series/2/chapters/1/page-1.png',
-                            'series/2/chapters/1/page-2.png',
-                            'series/2/chapters/1/page-3.png',
-                            'series/2/chapters/1/page-4.png',
-                            'series/2/chapters/1/page-5.png',
+                            '2/chapters/1/page-1.png',
+                            '2/chapters/1/page-2.png',
+                            '2/chapters/1/page-3.png',
+                            '2/chapters/1/page-4.png',
+                            '2/chapters/1/page-5.png',
                         ]
                     ],
                     [
                         'number' => 2,
                         'title' => 'La Espada Sagrada',
                         'pages' => [
-                            'series/2/chapters/2/page-1.png',
-                            'series/2/chapters/2/page-2.png',
-                            'series/2/chapters/2/page-3.png',
-                            'series/2/chapters/2/page-4.png',
-                            'series/2/chapters/2/page-5.png',
+                            '2/chapters/2/page-1.png',
+                            '2/chapters/2/page-2.png',
+                            '2/chapters/2/page-3.png',
+                            '2/chapters/2/page-4.png',
+                            '2/chapters/2/page-5.png',
                         ]
                     ],
                     [
                         'number' => 3,
                         'title' => 'Batalla en los Cielos',
                         'pages' => [
-                            'series/2/chapters/3/page-1.png',
-                            'series/2/chapters/3/page-2.png',
-                            'series/2/chapters/3/page-3.png',
-                            'series/2/chapters/3/page-4.png',
-                            'series/2/chapters/3/page-5.png',
+                            '2/chapters/3/page-1.png',
+                            '2/chapters/3/page-2.png',
+                            '2/chapters/3/page-3.png',
+                            '2/chapters/3/page-4.png',
+                            '2/chapters/3/page-5.png',
                         ]
                     ]
                 ]
@@ -139,17 +139,17 @@ class DatabaseSeeder extends Seeder
                 'genre' => 'Supernatural, Action, Mystery',
                 'synopsis' => 'En un mundo donde los espíritus malignos acechan en las sombras, un joven cazador de fantasmas armado con armas especiales debe enfrentar las criaturas más peligrosas del más allá. Cada misión lo acerca más a descubrir la verdad sobre su pasado y el origen de sus poderes sobrenaturales.',
                 'status' => 'Completed',
-                'cover_image' => 'covers/phantom-seeker-cover.png',
+                'cover_image' => 'phantom-seeker-cover.png',
                 'chapters' => [
                     [
                         'number' => 1,
                         'title' => 'El Primer Contacto',
                         'pages' => [
-                            'series/3/chapters/1/page-1.png',
-                            'series/3/chapters/1/page-2.png',
-                            'series/3/chapters/1/page-3.png',
-                            'series/3/chapters/1/page-4.png',
-                            'series/3/chapters/1/page-5.png',
+                            '3/chapters/1/page-1.png',
+                            '3/chapters/1/page-2.png',
+                            '3/chapters/1/page-3.png',
+                            '3/chapters/1/page-4.png',
+                            '3/chapters/1/page-5.png',
                         ]
                     ]
                 ]

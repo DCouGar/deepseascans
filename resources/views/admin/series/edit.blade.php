@@ -77,7 +77,7 @@
                     <div class="card bg-dark">
                         <div class="card-body">
                             <h5 class="card-title">Imagen actual</h5>
-                            <img id="cover_preview" src="{{ $series->cover_image ? '/' . $series->cover_image : '/images/default-cover.jpg' }}" class="img-fluid" alt="Vista previa">
+                            <img id="cover_preview" src="{{ $series->cover_image ? '/covers/' . $series->cover_image : '/images/default-cover.jpg' }}" class="img-fluid" alt="Vista previa">
                         </div>
                     </div>
                 </div>

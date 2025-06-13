@@ -38,7 +38,7 @@
                         <td>{{ $serie->id }}</td>
                         <td>
                             {{-- Display cover image thumbnail --}}
-                            <img src="{{ $serie->cover_image ? '/' . $serie->cover_image : '/images/default-cover.jpg' }}"
+                            <img src="{{ $serie->cover_image ? '/covers/' . $serie->cover_image : '/images/default-cover.jpg' }}"
                                  alt="Portada de {{ $serie->name }}"
                                  class="img-fluid" {{-- Make image responsive within its cell --}}
                                  style="max-height: 75px; object-fit: cover;"> {{-- Limit height --}}
