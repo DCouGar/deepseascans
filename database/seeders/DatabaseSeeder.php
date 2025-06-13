@@ -8,6 +8,7 @@ use App\Models\Series;
 use App\Models\Chapter;
 use App\Models\Page;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,13 +17,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Crear usuario administrador
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('password'),
-            'is_admin' => true,
-        ]);
+        // LIMPIAR DATOS EXISTENTES PRIMERO
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        Page::truncate();
+        Chapter::truncate();
+        Series::truncate();
+        User::where('email', '!=', 'admin@example.com')->delete(); // Mantener admin si existe
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
+        // Crear usuario administrador (solo si no existe)
+        User::firstOrCreate(
+            ['email' => 'admin@example.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('password'),
+                'is_admin' => true,
+            ]
+        );
 
         // Series con datos completos para TFG - Especificaciones exactas del usuario
         $seriesData = [
