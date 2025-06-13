@@ -7,6 +7,7 @@ use App\Http\Controllers\LandingController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,21 +16,13 @@ use App\Http\Controllers\Admin\AdminController;
 */
 
 // Image serving routes for Render compatibility (MUST BE FIRST)
-Route::get('/covers/{filename}', function ($filename) {
-    $path = public_path('covers/' . $filename);
-    if (!file_exists($path)) {
-        abort(404);
-    }
-    return response()->file($path);
-})->where('filename', '.*');
+Route::get('/covers/{filename}', [ImageController::class, 'serveCover'])
+    ->where('filename', '.*')
+    ->name('images.cover');
 
-Route::get('/series/{seriesId}/chapters/{chapterId}/{filename}', function ($seriesId, $chapterId, $filename) {
-    $fullPath = public_path("series/{$seriesId}/chapters/{$chapterId}/{$filename}");
-    if (!file_exists($fullPath)) {
-        abort(404);
-    }
-    return response()->file($fullPath);
-})->where(['seriesId' => '[0-9]+', 'chapterId' => '[0-9]+', 'filename' => '.*']);
+Route::get('/series/{seriesId}/chapters/{chapterId}/{filename}', [ImageController::class, 'servePage'])
+    ->where(['seriesId' => '[0-9]+', 'chapterId' => '[0-9]+', 'filename' => '.*'])
+    ->name('images.page');
 
 // Public Routes
 Route::get('/', [LandingController::class, 'index'])->name('landing');
@@ -85,6 +78,33 @@ Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () 
 });
 
 
+
+// Debug route to check file structure
+Route::get('/debug/files', function () {
+    $coversPath = public_path('covers');
+    $seriesPath = public_path('series');
+    
+    $covers = [];
+    $series = [];
+    
+    if (is_dir($coversPath)) {
+        $covers = array_diff(scandir($coversPath), ['.', '..']);
+    }
+    
+    if (is_dir($seriesPath)) {
+        $series = array_diff(scandir($seriesPath), ['.', '..']);
+    }
+    
+    return response()->json([
+        'public_path' => public_path(),
+        'covers_path' => $coversPath,
+        'covers_exists' => is_dir($coversPath),
+        'covers_files' => $covers,
+        'series_path' => $seriesPath,
+        'series_exists' => is_dir($seriesPath),
+        'series_dirs' => $series,
+    ]);
+});
 
 // Health check endpoint for monitoring
 Route::get('/health', function () {
